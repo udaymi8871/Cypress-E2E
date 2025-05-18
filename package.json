@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "tests:addToCart": "npx cypress run --spec cypress/e2e/tests/addToCart.cy.js",
+    "tests:registerFlow": "npx cypress run --spec cypress/e2e/registerTest.cy.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +20,7 @@
   "description": "",
   "devDependencies": {
     "cypress": "^14.3.3",
+    "cypress-mochawesome-reporter": "^3.8.2",
     "dotenv": "^16.5.0"
   }
 }
