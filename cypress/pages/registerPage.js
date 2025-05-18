@@ -16,8 +16,8 @@ export class registerPage {
     }
 
     openURL() {
-        console.log('URL:-', Cypress.env('URL'))
-        cy.visit(Cypress.env('URL'))
+        const loginUrl = `${Cypress.config('baseUrl')}${Cypress.env('registerPath')}`;
+        cy.visit(loginUrl)
     }
     
     enterFirstName(FName) {
