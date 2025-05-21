@@ -12,6 +12,6 @@ jobs:
         uses: cypress-io/github-action@v6
       - name: Cypress Test Report
         uses: actions/upload-artifact@v4
-  with:
-    name: my-artifact
-    path: cypress/reports/html
+        with:
+          name: my-artifact
+          path: cypress/reports/html/
