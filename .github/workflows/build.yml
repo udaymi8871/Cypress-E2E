@@ -1,17 +1,43 @@
+# name: Regression End-to-end tests
+# on: push
+# jobs:
+#   cypress-run:
+#     runs-on: ubuntu-24.04
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+#       # Install npm dependencies, cache them correctly
+#       # and run all Cypress tests
+#       - name: Cypress run
+#         uses: cypress-io/github-action@v6
+#       - name: Cypress Test Report
+#         uses: actions/upload-artifact@v6
+#         with:
+#           name: my-artifact
+#           path: cypress/reports/html/
+
+
+
 name: Regression End-to-end tests
 on: push
 jobs:
   cypress-run:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
+        
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
+
       - name: Cypress run
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v5
+        with:
+         command: npm run tests:addToCart    
+
       - name: Cypress Test Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: my-artifact
-          path: cypress/reports/html/
+          name: Mochawesome HTML Report
+          path: cypress/reports/html 
